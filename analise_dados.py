@@ -42,6 +42,22 @@ volatilidade_anual_pct = volatilidade_anual * 100
 print("volatilidade anualizada")
 print(volatilidade_anual_pct.round(3)) 
 
+
+#taxa livre de risco
+#quanto de retorno teriamos na aplicacao mais segura do mundo?
+#(o interessante aqui seria usar a taxa de juros do tesouro direto dos EUA)
+#vamos de valor hipotetico
+taxa_livre_risco = 0.04
+
+retorno_anualizado = retornos_diarios.mean() * 252
+
+#nossa indice sharpe
+#retorno acao - taxa livre / risco
+indice_sharpe = (retorno_anualizado - taxa_livre_risco ) / volatilidade_anual
+
+print("Indice Sharpe: ")
+print(indice_sharpe.round(3))
+
 plt.figure(figsize=(10,6))
 
 # plt.plot(dados.index, dados["Retorno_Acumulado"], label="IBM",color="blue", linewidth=2)
