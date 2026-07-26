@@ -8,7 +8,14 @@ ticker = "IBM"
 
 acao = yf.Ticker(ticker)
 
-
 dados = acao.history(period="1y")
 
-print(dados.head())
+
+#criando uma nova coluna em dados a partir da variacao do preco de fechamento por dia
+dados["Retorno_Diario"] = dados["Close"].pct_change()
+
+#precisamos limpar a primeira coluna ja que ela tera valor nulo (porque n temos fechamento anterior)
+
+dados = dados.dropna()
+
+print(dados[["Close", "Retorno_Diario"]].head())
