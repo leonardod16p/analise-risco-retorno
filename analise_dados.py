@@ -1,6 +1,8 @@
 import pandas as pd
 import yfinance as yf
 import matplotlib.pyplot as plt
+import numpy as np
+
 
 #nome da acao
 ticker = "IBM"
@@ -20,22 +22,25 @@ print(dados_fechamento[["IBM", "IBM_MM50"]].head(55))
 
 
 # #criando uma nova coluna em dados a partir da variacao do preco de fechamento por dia
-# dados["Retorno_Diario"] = dados["Close"].pct_change()
-
-# #precisamos limpar a primeira coluna ja que ela tera valor nulo (porque n temos fechamento anterior)
+#dados["Retorno_Diario"] = dados["Close"].pct_change()
+retornos_diarios = dados_fechamento[["IBM", "MSFT"]].pct_change()
+#precisamos limpar a primeira coluna ja que ela tera valor nulo (porque n temos fechamento anterior)
 
 # dados = dados.dropna()
 
-# volatilidade = dados["Retorno_Diario"].std()
-
+#volatilidade = dados["Retorno_Diario"].std()
+volatilidade_diaria = retornos_diarios.std()
 
 # #calculando o retorno acumulado
 # #
-# dados["Retorno_Acumulado"] = (1 + dados["Retorno_Diario"]).cumprod()
-
+#dados["Retorno_Acumulado"] = (1 + dados["Retorno_Diario"]).cumprod()
+volatilidade_anual = volatilidade_diaria * np.sqrt(252)
 
 # print(dados[["Close", "Retorno_Diario", "Retorno_Acumulado"]].tail())
+volatilidade_anual_pct = volatilidade_anual * 100
 
+print("volatilidade anualizada")
+print(volatilidade_anual_pct.round(3)) 
 
 plt.figure(figsize=(10,6))
 
