@@ -30,4 +30,16 @@ dados["Retorno_Acumulado"] = (1 + dados["Retorno_Diario"]).cumprod()
 print(dados[["Close", "Retorno_Diario", "Retorno_Acumulado"]].tail())
 
 
-print(volatilidade)
+plt.figure(figsize=(10,6))
+
+plt.plot(dados.index, dados["Retorno_Acumulado"], label="IBM",color="blue", linewidth=2)
+
+plt.title("Evolucao do patrimonio - IBM (1 ano)", fontsize=12)
+plt.xlabel("Data", fontsize=10)
+plt.ylabel("Retorno Acumulado", fontsize=10)
+
+plt.grid(True, linestyle="--", alpha=0.5)
+
+plt.legend()
+
+plt.show()
