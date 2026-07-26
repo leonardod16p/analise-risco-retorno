@@ -58,6 +58,20 @@ indice_sharpe = (retorno_anualizado - taxa_livre_risco ) / volatilidade_anual
 print("Indice Sharpe: ")
 print(indice_sharpe.round(3))
 
+#retorna o maior preco ate cada dia
+picos = dados_fechamento.cummax()
+
+
+#porcentagem de queda em relacao ao pico anterior
+drawdowns = (dados_fechamento - picos) / picos
+
+max_drawdown = drawdowns.min() * 100
+
+print("Maior drawdown: ")
+print(max_drawdown.round(3))
+
+
+
 plt.figure(figsize=(10,6))
 
 # plt.plot(dados.index, dados["Retorno_Acumulado"], label="IBM",color="blue", linewidth=2)
