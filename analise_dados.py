@@ -9,4 +9,6 @@ ticker = "IBM"
 acao = yf.Ticker(ticker)
 
 
-print(acao)
+dados = acao.history(period="1y")
+
+print(dados.head())
