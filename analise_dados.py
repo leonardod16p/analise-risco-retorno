@@ -1,5 +1,6 @@
 import pandas as pd
 import yfinance as yf
+import matplotlib.pyplot as plt
 
 #nome da acao
 ticker = "IBM"
@@ -18,4 +19,15 @@ dados["Retorno_Diario"] = dados["Close"].pct_change()
 
 dados = dados.dropna()
 
-print(dados[["Close", "Retorno_Diario"]].head())
+volatilidade = dados["Retorno_Diario"].std()
+
+
+#calculando o retorno acumulado
+#
+dados["Retorno_Acumulado"] = (1 + dados["Retorno_Diario"]).cumprod()
+
+
+print(dados[["Close", "Retorno_Diario", "Retorno_Acumulado"]].tail())
+
+
+print(volatilidade)
