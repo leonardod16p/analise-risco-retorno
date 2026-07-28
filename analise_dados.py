@@ -75,10 +75,10 @@ print(max_drawdown.round(3))
 plt.figure(figsize=(10,6))
 
 # plt.plot(dados.index, dados["Retorno_Acumulado"], label="IBM",color="blue", linewidth=2)
-plt.plot(dados_fechamento.index, dados_fechamento["IBM"], label="Preco IBM",color="blue", alpha=0.5)
-plt.plot(dados_fechamento.index, dados_fechamento["IBM_MM50"], label="Media Movel 50 Dias",color="red", linewidth=2)
+plt.plot(dados_fechamento.index, dados_fechamento["IBM"], label="Preço IBM",color="blue", alpha=0.5)
+plt.plot(dados_fechamento.index, dados_fechamento["IBM_MM50"], label="Média Móvel 50 Dias",color="red", linewidth=2)
 
-plt.title("IBM: Preco Vs Media Movel", fontsize=12)
+plt.title("IBM: Preço Vs Media Movel", fontsize=12)
 plt.xlabel("Data", fontsize=10)
 plt.ylabel("Retorno Acumulado", fontsize=10)
 
