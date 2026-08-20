@@ -58,12 +58,14 @@ indice_sharpe = (retorno_anualizado - taxa_livre_risco ) / volatilidade_anual
 print("Indice Sharpe: ")
 print(indice_sharpe.round(3))
 
+precos = dados_fechamento[["IBM", "MSFT"]]
+
 #retorna o maior preco ate cada dia
-picos = dados_fechamento.cummax()
+picos = precos.cummax()
 
 
 #porcentagem de queda em relacao ao pico anterior
-drawdowns = (dados_fechamento - picos) / picos
+drawdowns = (precos - picos) / picos
 
 max_drawdown = drawdowns.min() * 100
 
@@ -80,7 +82,7 @@ plt.plot(dados_fechamento.index, dados_fechamento["IBM_MM50"], label="Média Mó
 
 plt.title("IBM: Preço Vs Media Movel", fontsize=12)
 plt.xlabel("Data", fontsize=10)
-plt.ylabel("Retorno Acumulado", fontsize=10)
+plt.ylabel("Preço (USD)", fontsize=10)
 
 plt.grid(True, linestyle="--", alpha=0.5)
 
