@@ -18,8 +18,6 @@ A partir do cálculo do retorno anualizado e da volatilidade, podemos construir 
 Também é calculado o Maximum Drawdown, que mede a maior queda percentual do preço em relação ao seu pico anterior no período. Trata-se de um indicador do grau de severidade da pior perda enfrentada por quem estava posicionado no ativo.
 
 
-
-
 ## Indicadores
 
 - Retorno Acumulado:
@@ -42,3 +40,4 @@ Visualização do preço de fechamento da IBM comparado à sua média móvel de 
 
 ## Conclusão
 
+No período analisado, a IBM apresentou volatilidade e Sharpe superiores à Microsoft. Isso significa que a IBM apresenta mais risco, mas também melhor retorno ajustado ao risco assumido, já que seu Sharpe positivo (0.178) indica retorno acima da taxa livre de risco mesmo considerando a volatilidade mais alta. Já a Microsoft, apesar de menos volátil, teve Sharpe negativo no período, sugerindo retorno abaixo da taxa livre de risco hipotética adotada.
